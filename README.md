@@ -20,6 +20,7 @@ El proyecto se separa en 3 capas:
 
 Para la capa de `Data` solo se aborda con peticiones a remote sin datos guardados en caché como datastore o room.
 
+
 Se utiliza `retrofit` para declarar los endpoint y la recepción de contratos. Las funciones de remote se abstraen del repositorio a través de interfaces y `hilt`. El repositorio es el encargado de ser la entrada a la capa de data desde presentation.
 
 ## Capa de Presentation
@@ -47,3 +48,11 @@ Para esto ir a la opción de Android Studio en barra superior:
 ```Build -> Build Bundle(s) / APK(s) -> Build APK(s)```
 
 ## Imágenes de la Demo
+<img src="https://user-images.githubusercontent.com/38668715/224065290-07ca1806-167b-4e03-9cc9-f0c58e8ab4b7.png" width="300">
+<img src="https://user-images.githubusercontent.com/38668715/224065295-d8bf3c37-e2ce-4a37-930f-5c979b2fa632.png" width="300">
+<img src="https://user-images.githubusercontent.com/38668715/224065273-b4099119-77c3-4b21-90a1-a09a2179c03e.png" width="300">
+<img src="https://user-images.githubusercontent.com/38668715/224065280-2902e60c-8c42-4d35-8e2e-3a8bf2024d55.png" width="300">
+<img src="https://user-images.githubusercontent.com/38668715/224065283-c8a43928-debc-439b-ae1b-4ea16134fb37.png" width="300">
+<img src="https://user-images.githubusercontent.com/38668715/224067040-bba5c96e-4c89-481d-a8bb-248a6749c1ea.png" width="300">
+
+
