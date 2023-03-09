@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Search Products</string>
+    <string name="on_back">Volver</string>
+    <string name="an_unexpected_error_occurred">¡Ocurrió un error inesperado!</string>
+    <string name="please_try_gain">Favor, vuelve a intentar.</string>
+    <string name="retry">Reintentar</string>
+    <string name="no_results_found">¡No se encontraron resultados!</string>
+    <string name="sold_by">vendido por</string>
+    <string name="please_try_looking_for_another_product">Favor, prueba buscando otro producto.</string>
+    <string name="search_in_mercado_libre">Buscar en Mercado Libre</string>
+    <string name="vehicle_accessories">Accesorios para vehículos</string>
+</resources>
