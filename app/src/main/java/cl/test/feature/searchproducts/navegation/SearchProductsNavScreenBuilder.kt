@@ -23,15 +23,12 @@ internal fun NavGraphBuilder.searchNav(
 ) {
     val uiState = remember {
         viewModel.uiState()
-    }.collectAsState(initial = viewModel.loadingUiState)
 
-    val emitInitialIntent = remember {
-        mutableStateOf(true)
-    }
+    }.collectAsState(initial = viewModel.initialUiState)
 
-    if (emitInitialIntent.value && viewModel.isGoToDetail.not()) {
+    if (viewModel.emitInitialIntent) {
         intentHandler.initialUserIntent(CATEGORY)
-        emitInitialIntent.value = false
+        viewModel.onInitialIntentChanged(false)
     }
 
     SearchScreen(intentHandler = intentHandler, uiState = uiState, viewModel = viewModel)

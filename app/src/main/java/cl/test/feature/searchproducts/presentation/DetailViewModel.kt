@@ -1,5 +1,8 @@
 package cl.test.feature.searchproducts.presentation
 
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import cl.test.feature.searchproducts.presentation.detail.DetailAction

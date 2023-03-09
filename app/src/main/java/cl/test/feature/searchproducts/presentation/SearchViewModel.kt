@@ -40,11 +40,11 @@ internal class SearchViewModel @Inject constructor(
     private val reducer: SearchReducer,
     private val processor: SearchProcessor
 ) : ViewModel() {
-    val loadingUiState: SearchUiState = LoadingUiState
-    private val uiState: MutableStateFlow<SearchUiState> = MutableStateFlow(loadingUiState)
+    var initialUiState: SearchUiState = LoadingUiState
+    private val uiState: MutableStateFlow<SearchUiState> = MutableStateFlow(initialUiState)
     var navActions: SearchProductsNavActions? = null
-    var isGoToDetail: Boolean = false
     var searchText by mutableStateOf("")
+    var emitInitialIntent by mutableStateOf(true)
 
     fun processUserIntentsAndObserveUiStates(
         userIntents: Flow<SearchUIntent>,
@@ -55,9 +55,12 @@ internal class SearchViewModel @Inject constructor(
                 processor.actionProcessor(userIntent.toAction())
             }
             .checkResultForNav()
-            .scan(loadingUiState) { previousState, result ->
+            .scan(initialUiState) { previousState, result ->
                 with(reducer) { previousState reduceWith result }
-            }.onEach { uiState.value = it }
+            }.onEach {
+                uiState.value = it
+                initialUiState = it
+            }
             .launchIn(coroutineScope)
     }
 
@@ -77,12 +80,14 @@ internal class SearchViewModel @Inject constructor(
 
     private fun goToDetail(item: Item) {
         navActions?.detail?.invoke(item)
-        isGoToDetail = true
     }
 
     fun uiState(): StateFlow<SearchUiState> = uiState
 
     fun onSearchTextChanged(newText: String) {
         searchText = newText
+    }
+    fun onInitialIntentChanged(changed: Boolean) {
+        emitInitialIntent = changed
     }
 }
